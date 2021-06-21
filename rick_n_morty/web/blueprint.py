@@ -60,8 +60,16 @@ def feed_db():
 
             for (i, c) in enumerate(all_characters, 1):
                 res = db.characters.insert_one(c)
-                yield f"Objeto {res.inserted_id} inserido. ({i}) "
+                yield f"Personagem {c['name']} inserido. ({i}) "
 
         yield f"""<br><script>location.replace('{f.url_for('RnM.index')}')</script>"""
 
     return f.Response(stream(api.get_all_characters()))
+
+
+@bp.route("/db/drop")
+def drop_db():
+    for (_, db) in mongo_conn():
+        db.characters.delete_many({})
+
+    return f.redirect(f.url_for("RnM.index"))

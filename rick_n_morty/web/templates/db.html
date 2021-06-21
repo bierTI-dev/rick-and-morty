@@ -4,5 +4,15 @@
 {% block jb %}
     {{ jumbotron("Número de personagens no banco: {}".format(num_chars),
                  "Clique no botão abaixo para popular o banco.",
-                 url_for("RnM.feed_db"), "Popular") }}
+                 url_for("RnM.feed_db"), "Inserir personagens") }}
+{% endblock %}
+
+{% block content %}
+    <p>Quer dropar os dados em vez de popular o banco?</p>
+    <p>
+        <a class="btn btn-danger btn-lg" href="{{ url_for('RnM.drop_db') }}"
+           role="button">
+            Dropar dados &raquo;
+        </a>
+    </p>
 {% endblock %}
