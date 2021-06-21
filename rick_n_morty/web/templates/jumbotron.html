@@ -1,0 +1,14 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+{% macro jumbotron(title, text, bt_url, bt_text) %}
+<div class="jumbotron">
+    <div class="container">
+        <h2>{{ title }}</h2>
+        <p>{{ text }}</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="{{ bt_url or '#' }}" role="button">
+                {{ bt_text }} &raquo;
+            </a>
+        </p>
+    </div>
+</div>
+{% endmacro %}

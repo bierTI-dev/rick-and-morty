@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% from "jumbotron.html" import jumbotron %}
+
+{% block jb %}
+    {{ jumbotron("Número de personagens no banco: {}".format(num_chars),
+                 "Clique no botão abaixo para popular o banco.",
+                 url_for("RnM.feed_db"), "Popular") }}
+{% endblock %}

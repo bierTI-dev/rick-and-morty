@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% from "jumbotron.html" import jumbotron %}
+
+{% block jb %}
+    {% if not (male and female) %}
+    {{ jumbotron(quote, "Parece que o mongo ainda não está populado com os dados sobre os personagens. Comece fazendo isso :)",
+                 url_for("RnM.db"), "Popular banco") }}
+    {% endif %}
+{% endblock jb %}
+
+{% block content %}
+{% if male and female %}
+<br><br><br>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Personagem masculino</h2>
+        <img src="{{ male['image'] }}">
+        <p>Nome: {{ male["name"] }}</p>
+        <p>Espécie: {{ male["species"] }}</p>
+        <p>Status: {{ male["status"] }}</p>
+        <p>Planeta de origem: {{ male["origin"]["name"] }}</p>
+        <div>
+            3+ episódios:
+            <ol>
+            {% for e in male["eps"] %}
+                <li>{{ e["name"] }}: {{ e["release"] }} ({{ e["episode"] }})</li>
+            {% endfor %}
+            </ol>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Personagem feminino</h2>
+        <img src="{{ female['image'] }}">
+        <p>Nome: {{ female["name"] }}</p>
+        <p>Espécie: {{ female["species"] }}</p>
+        <p>Status: {{ female["status"] }}</p>
+        <p>Planeta de origem: {{ female["origin"]["name"] }}</p>
+        <div>
+            3+ episódios:
+            <ol>
+                {% for e in female["eps"] %}
+                <li>{{ e["name"] }}: {{ e["release"] }} ({{ e["episode"] }})</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
