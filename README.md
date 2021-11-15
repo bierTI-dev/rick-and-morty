@@ -1,28 +1,28 @@
-# Projeto API Rick and Morty
+# Rick and Morty API Project
 
-## Instalação
-O projeto usa uma instância de banco de dados Mongo e algumas bibliotecas do Python, como `flask`, `requests` e `pymongo`. A versão do Python usada é a `3.9.5`.
+## Installation
+The project uses a Mongo database instance and some Python libraries such as `flask`, `requests` and `pymongo`. The Python version used is `3.9.5`.
 
 ### MongoDB
-Existem três alternativas para usar o MongoDB:
+There are three alternatives to using MongoDB:
 
-1. Baixando e instalando em sua máquina: [site oficial do Mongo](https://www.mongodb.com/)
-1. Criando uma instância gratuita no Atlas: [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
-1. Utilizando uma imagem pronta do docker: [link para o Docker Hub](https://hub.docker.com/_/mongo)
+1. Downloading and installing on your machine: [Mongo's official website](https://www.mongodb.com/)
+2. Creating a free instance in Atlas: [Mongo Atlas](https://www.mongodb.com/cloud/atlas)
+3. Using a ready-made docker image: [link to Docker Hub](https://hub.docker.com/_/mongo)
 
-### Bibliotecas Python
-Todas as dependências do projeto se encontram no arquivo [requirements.txt](requirements.txt). Para instalá-las, basta executar
+### Python Libraries
+All project dependencies are in the file [requirements.txt](requirements.txt). To install them, just run
 
-    pip install -r requirements.txt
+     pip install -r requirements.txt
 
-no PowerShell do Windows ou terminal do Unix (Linux/MacOS). Adicionalmente, você pode querer executar este comando de dentro de um [ambiente virtual](https://docs.python.org/pt-br/3/library/venv.html).
+In Windows PowerShell or Unix Terminal (Linux/MacOS). Additionally, you may want to run this command from within a [virtual environment](https://docs.python.org/en-us/3/library/venv.html).
 
-## Configuração
-O projeto possui uma configuração simples que consiste de opcionalmente definir duas variáveis de ambiente: `MONGO_DBNAME` e `MONGO_CONN_URL`, como pode ser visto no arquivo [config.py](config.py).
+## Settings
+The project has a simple configuration that consists of optionally setting two environment variables: `MONGO_DBNAME` and `MONGO_CONN_URL`, as seen in the [config.py](config.py) file.
 
-A variável de ambiente `MONGO_CONN_URL` só é necessária caso você use a instância do Atlas. Caso instale localmente ou use docker (com as devidas portas expostas), ela não deve ser necessária.
+The environment variable `MONGO_CONN_URL` is only needed if you use the Atlas instance. If installing locally or using a docker (with the appropriate ports exposed), it should not be necessary.
 
-## Execução
-    python app.py
+## Execution
+     python app.py
 
-O comando acima sobe um servidor Flask na porta 5000 que pode ser acessado pelo [http://localhost:5000](http://localhost:5000).
+The above command raises a Flask server on port 5000 which can be accessed by [http://localhost:5000](http://localhost:5000).
